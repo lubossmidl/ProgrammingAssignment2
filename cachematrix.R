@@ -1,14 +1,26 @@
-## Put comments here that give an overall description of what your
+## R language: Programming Assignment 2 - matrix inverse cache
+
 ## functions do
 
-## Write a short comment describing this function
+## Create cached matrix
 
 makeCacheMatrix <- function(x = matrix()) {
+        i <- NULL
+        set <- function(y) {
+                x <<- y
+                i <<- NULL
+        }
+        get <- function() x
+        setsolve <- function(solve) i <<- solve
+        getsolve <- function() s
+        list(set = set, get = get,
+             setsolve = setsolve,
+             getsolve = getsolve)
 
 }
 
 
-## Write a short comment describing this function
+## cache result of inverse of matrix
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'

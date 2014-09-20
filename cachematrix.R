@@ -1,8 +1,6 @@
 ## R language: Programming Assignment 2 - matrix inverse cache
 
-## functions do
-
-## Create cached matrix
+## create cached matrix "object"
 
 makeCacheMatrix <- function(x = matrix()) {
         i <- NULL
@@ -20,7 +18,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## cache result of inverse of matrix
+## compute inverse of matrix (if is cached, return directly, othervise compute and store)
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
@@ -35,29 +33,3 @@ cacheSolve <- function(x, ...) {
         i
 }
 
-
-makeVector <- function(x = numeric()) {
-        m <- NULL
-        set <- function(y) {
-                x <<- y
-                m <<- NULL
-        }
-        get <- function() x
-        setmean <- function(mean) m <<- mean
-        getmean <- function() m
-        list(set = set, get = get,
-             setmean = setmean,
-             getmean = getmean)
-}
-
-cachemean <- function(x, ...) {
-        m <- x$getmean()
-        if(!is.null(m)) {
-                message("getting cached data")
-                return(m)
-        }
-        data <- x$get()
-        m <- mean(data, ...)
-        x$setmean(m)
-        m
-}
